@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
     var pictures = [String]()
 
     override func viewDidLoad() {
@@ -24,8 +24,14 @@ class ViewController: UIViewController {
                 pictures.append(item)
             }
         }
+
+        print(pictures)
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pictures.count
+    }
 
+    // https://www.hackingwithswift.com/read/1/3/designing-our-interface 11:00
 }
 
