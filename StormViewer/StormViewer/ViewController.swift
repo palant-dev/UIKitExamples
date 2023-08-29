@@ -32,6 +32,10 @@ class ViewController: UITableViewController {
         return pictures.count
     }
 
-    // https://www.hackingwithswift.com/read/1/3/designing-our-interface 11:00
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        cell.textLabel?.text = pictures[indexPath.row]
+        return cell
+    }
 }
 
