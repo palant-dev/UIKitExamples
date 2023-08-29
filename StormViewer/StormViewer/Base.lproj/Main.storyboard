@@ -55,17 +55,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-gi-UqD">
-                                <rect key="frame" x="0.0" y="59" width="393" height="734"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-gi-UqD">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mfJ-eh-FIv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rUM-gi-UqD" firstAttribute="top" secondItem="wRe-Hj-asY" secondAttribute="topMargin" id="8md-lJ-BqM"/>
-                            <constraint firstItem="rUM-gi-UqD" firstAttribute="centerY" secondItem="wRe-Hj-asY" secondAttribute="centerY" id="Ds3-e1-HuY"/>
-                            <constraint firstItem="rUM-gi-UqD" firstAttribute="leading" secondItem="mfJ-eh-FIv" secondAttribute="leading" id="Dyj-kG-9HN"/>
-                            <constraint firstItem="rUM-gi-UqD" firstAttribute="centerX" secondItem="wRe-Hj-asY" secondAttribute="centerX" id="Ye0-4w-VS5"/>
+                            <constraint firstItem="rUM-gi-UqD" firstAttribute="centerY" secondItem="wRe-Hj-asY" secondAttribute="centerY" id="WYq-wn-anU"/>
+                            <constraint firstItem="rUM-gi-UqD" firstAttribute="top" secondItem="wRe-Hj-asY" secondAttribute="topMargin" constant="-59" id="p5L-1f-mkh"/>
+                            <constraint firstItem="rUM-gi-UqD" firstAttribute="leading" secondItem="mfJ-eh-FIv" secondAttribute="leading" id="qr7-aC-XkJ"/>
+                            <constraint firstItem="rUM-gi-UqD" firstAttribute="centerX" secondItem="wRe-Hj-asY" secondAttribute="centerX" id="vdh-Q3-hl0"/>
                         </constraints>
                     </view>
                     <connections>
