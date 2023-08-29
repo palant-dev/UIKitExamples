@@ -13,6 +13,9 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Storm Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         let fm = FileManager.default
         // Force unwrapping this is safe because apple apps has always a resources path
         let path = Bundle.main.resourcePath!
