@@ -43,6 +43,16 @@ class ViewController: UIViewController {
         title = countries[correctAnswer].uppercased()
     }
 
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        var title: String
 
+        if sender.tag == correctAnswer {
+            title = "Correct"
+            score += 1
+        } else {
+            title = "Wrong"
+            score -= 1
+        }
+    }
 }
 
