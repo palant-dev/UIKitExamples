@@ -95,10 +95,10 @@ class ViewController: UIViewController {
 }
 
 
-extension UIViewController {
-    enum roundCase: Int {
-        case normalRound
-        case lastRound
-    }
+
+enum roundCase: Int {
+    case normalRound
+    case lastRound
 }
+
 
