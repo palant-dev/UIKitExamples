@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var maxNumberOfRounds = 10
+    var round: (counter: Int, roundType: roundCase) = (1, .normalRound)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,24 +42,63 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
 
-        title = countries[correctAnswer].uppercased()
+        title = countries[correctAnswer].uppercased() + " - Round \(round.counter)/\(maxNumberOfRounds)"
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
-        var title: String
-
-        if sender.tag == correctAnswer {
-            title = "Correct"
-            score += 1
+        var title: String = ""
+        if round.counter < maxNumberOfRounds {
+            round.roundType = .normalRound
         } else {
-            title = "Wrong, this is \(countries[sender.tag].uppercased())"
-            score -= 1
+            round.roundType = .lastRound
         }
 
+        alertButtonBehaviour(roundType: round.roundType, sender: sender)
+
+        round.counter += 1
+
         let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        ac.addAction(UIAlertAction(title: round.roundType == .normalRound ? "Continue" : "Restart", style: .default, handler: askQuestion))
 
         present(ac, animated: true)
+
+        if round.roundType == .lastRound {
+            round = (1, .normalRound)
+            score = 0
+        }
+    }
+
+    func alertButtonBehaviour(roundType: roundCase, sender: UIButton) {
+        switch roundType {
+            case .normalRound:
+            if sender.tag == correctAnswer {
+                title = "Correct"
+                score += 1
+            } else {
+                title = "Wrong, this is \(countries[sender.tag].uppercased())"
+                score -= 1
+            }
+        case .lastRound:
+            if sender.tag == correctAnswer {
+                title = "Correct, this was the last round"
+                score += 1
+            } else {
+                title = "Wrong, this is \(countries[sender.tag].uppercased()), this was the last round"
+                score -= 1
+            }
+        }
+    }
+
+    func checkReset(round: (Int, roundCase)) {
+
+    }
+}
+
+
+extension UIViewController {
+    enum roundCase: Int {
+        case normalRound
+        case lastRound
     }
 }
 
