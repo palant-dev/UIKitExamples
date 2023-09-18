@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
 
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .done, target: self, action: #selector(likeAndShare))
 
         let fm = FileManager.default
         // Force unwrapping this is safe because apple apps has always a resources path
@@ -50,6 +51,13 @@ class ViewController: UITableViewController {
             vc.totalImageNumber = pictures.count
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+
+    @objc func likeAndShare() {
+        let vc = UIActivityViewController(activityItems: ["Join StormViewer at http://applestore.com"], applicationActivities: [])
+
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
 
