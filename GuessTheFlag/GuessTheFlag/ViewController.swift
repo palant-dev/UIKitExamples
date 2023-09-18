@@ -89,9 +89,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func checkReset(round: (Int, roundCase)) {
-
-    }
+    
 }
 
 
