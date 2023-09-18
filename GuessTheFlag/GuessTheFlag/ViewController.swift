@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "flag.2.crossed.circle.fill"), style: .plain, target: self, action: #selector(showAlertScore))
+
         countries += ["estonia", "france","germany", "ireland", "italy", "monaco" , "nigeria", "poland", "russia", "spain", "uk", "us"]
 
         button1.layer.borderWidth = 1
@@ -89,7 +91,11 @@ class ViewController: UIViewController {
         }
     }
 
-    
+    @objc func showAlertScore() {
+        let ac = UIAlertController(title: "Current Score", message: String(correctAnswer), preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(ac, animated: true)
+    }
 }
 
 
